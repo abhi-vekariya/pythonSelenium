@@ -15,7 +15,7 @@ driver = webdriver.Chrome(service=service_obj)
 
 driver.maximize_window()
 
-driver.get("https://dev-ia-training-portal.simformsolutions.com")
+driver.get("https://opensource-demo.orangehrmlive.com/")
 print(driver.title)
 print(driver.current_url)
 
