@@ -9,6 +9,6 @@ serv_obj = Service("/home/abhivekariya/driver_for_browser/chrome/chromedriver")
 
 driver = webdriver.Chrome(service=serv_obj,options=ops)
 
-driver.get("https://whatmylocation.com")
+driver.get("https://www.tatadigital.com/home")
 driver.maximize_window()
 

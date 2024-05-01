@@ -93,6 +93,50 @@ driver.find_element(By.XPATH,"//input[@role='combobox']").send_keys("Car")
 driver.find_element(By.XPATH,"//li[contains(text(), 'Car rental')]").click()
 
 
+# driver.find_element(By.XPATH,"//input[@id='appoinmentdate']").click()
+# appointment_month = Select(driver.find_element(By.XPATH,"//select[@aria-label='Select month']"))
+# appointment_month.select_by_visible_text("Jul")
+#
+# appointment_year = Select(driver.find_element(By.XPATH,"//select[@aria-label='Select year']"))
+# appointment_year.select_by_visible_text("2025")
+#
+# appointment_dates = driver.find_elements(By.XPATH,"//table[@class='ui-datepicker-calendar']/tbody/tr/td")
+#
+# for app_date in appointment_dates:
+#     if app_date.text == '5':
+#         app_date.click()
+
+driver.find_element(By.XPATH, "//input[@id='deliverymethod_2']").click()
+
+driver.find_element(By.XPATH,"//input[@id='billname']").send_keys("Bill_general_01")
+driver.find_element(By.XPATH,"//input[@id='billing_phone']").send_keys("1478523990")
+driver.find_element(By.XPATH,"//input[@id='billing_email']").send_keys("abcd@gmail.com")
+
+driver.find_element(By.XPATH,"//span[@id='select2-billing_country-container']").click()
+
+driver.find_element(By.XPATH,"//input[@role='combobox']").send_keys('Ir')
+driver.find_element(By.XPATH, "//ul[@id='select2-billing_country-results']/li[3]").click()
+
+driver.find_element(By.XPATH,"//input[@id='billing_address_1']").send_keys("ABC park, Main road, Kevalam valley")
+driver.find_element(By.XPATH,"//input[@id='billing_address_2']").send_keys("Apartment 123, new road")
+
+driver.find_element(By.XPATH,"//input[@id='billing_city']").send_keys("Surat")
+driver.find_element(By.XPATH, "//input[@id='billing_state']").send_keys("Babil")
+
+driver.find_element(By.XPATH,"//input[@id='billing_postcode']").send_keys("147000")
+
+cart_subtotal = driver.find_element(By.XPATH,"//table[@class='shop_table woocommerce-checkout-review-order-table']/tfoot/tr/td/span")
+cart_subtotal_rupees = cart_subtotal.text
+
+order_total = driver.find_element(By.XPATH,"//tr[@class='order-total']//span[@class='woocommerce-Price-amount amount']")
+order_total_rupees = order_total.text
+
+if cart_subtotal_rupees == order_total_rupees:
+    driver.find_element(By.XPATH,"//button[@id='place_order']").click()
+else:
+    print("Cart subtotal does not match order total")
+
+
 # desired_option = "WhatsApp"
 # for radio in range(1,total_buttons+1):
 #      option = driver.find_element(By.XPATH,"//p[@id='deliverymethod_field']/span/input["+str(radio)+"]")
