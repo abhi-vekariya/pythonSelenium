@@ -7,9 +7,8 @@ download_directory = os.getcwd()
 
 def chrome_setup():
     serv_obj = Service("/home/abhivekariya/driver_for_browser/chrome/chromedriver")
-
-    prefs = {"download.default_directory": download_directory}
     chrome_options = webdriver.ChromeOptions()
+    prefs = {"download.default_directory": download_directory}
     chrome_options.add_experimental_option("prefs", prefs)
     driver = webdriver.Chrome(service=serv_obj, options=chrome_options)
     return driver
