@@ -17,3 +17,5 @@ driver.implicitly_wait(5)
 driver.get("https://demo.nopcommerce.com/")
 driver.switch_to.new_window('window')
 driver.get("https://www.orangehrm.com/")
+
+driver.quit()
